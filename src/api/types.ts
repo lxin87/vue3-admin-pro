@@ -22,3 +22,22 @@ export interface PaginateData<T> {
     total:number;
 
 }
+
+/**
+ * 核心用户模型 (对应后端的 User 实体)
+ * 整个系统通用的 User 定义
+ *//**
+ * 核心用户模型 (对应后端的 User 实体)
+ * 整个系统通用的 User 定义
+ */
+
+ export interface UserModel{
+    id:number;
+    username:string;
+    name:string;
+    avatar:string;
+    email?:string;
+    phone?:string;
+    status?:number;
+    created_at?:string;
+ }
