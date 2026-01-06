@@ -10,13 +10,26 @@ const routes:RouteRecordRaw[] = [
         }
     },
     {
-        path:'/',
-        name:'Home',
-        component:()=>import('@/views/system/index.vue'),
-        meta:{
-            title:'首页'
+      path: '/',
+      name: 'layout',
+      component: () => import('@/layout/index.vue'),
+      redirect: '/dashboard',
+      children: [
+        {
+          path: '/dashboard',
+          name: 'Dashboard',
+          component: () => import('@/views/dashboard/index.vue'),
+          meta: { title: '首页', icon: 'HomeFilled' }
         }
+      ]
     },
+    
+    // 3. 404 页面 (兜底)
+    {
+      path: '/404',
+      component: () => import('@/views/error/404.vue'),
+      meta: { hidden: true }
+    }
 ]
 
 const router = createRouter({

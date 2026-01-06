@@ -31,7 +31,7 @@ export interface PaginateData<T> {
  * 整个系统通用的 User 定义
  */
 
- export interface UserModel{
+ export interface AdminModel{
     id:number;
     username:string;
     name:string;

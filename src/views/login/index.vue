@@ -36,7 +36,7 @@ const handleLogin = async() =>{
             localStorage.setItem('token',res.token)
             localStorage.setItem('user',JSON.stringify(res.userInfo))
             ElMessage.success('登录成功')
-            router.push('/')
+            router.push('/dashboard')
         }catch(error){
             //已在request.ts中处理了.
         }
