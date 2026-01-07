@@ -7,7 +7,7 @@ export interface ColumnProps {
   
   // 核心：是否开启搜索
   search?: {
-    el?: 'input' | 'select'; // 搜索框类型
+    el?: 'input' | 'select' | 'date-picker'; // 搜索框类型
     placeholder?: string;    // 占位符
     props?: any;             // 其他 Element 属性
   }; 

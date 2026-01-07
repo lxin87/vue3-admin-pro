@@ -126,15 +126,41 @@ onMounted(() => {
       <el-form :inline="true" :model="searchParam">
         <template v-for="item in columns" :key="item.prop">
           <el-form-item v-if="item.search" :label="item.label">
+            
             <el-input 
               v-if="item.search.el === 'input' || !item.search.el"
-              v-model="searchParam[item.prop]" 
+              v-model="searchParam[item.search.key || item.prop]" 
               :placeholder="item.search.placeholder || `请输入${item.label}`"
               clearable
               @keyup.enter="search"
             />
-            </el-form-item>
+
+            <el-date-picker
+              v-else-if="item.search.el === 'date-picker'"
+              v-model="searchParam[item.search.key || item.prop]"
+              v-bind="item.search.props"
+              :start-placeholder="item.search.props?.startPlaceholder || '开始日期'"
+              :end-placeholder="item.search.props?.endPlaceholder || '结束日期'"
+              clearable
+            />
+
+            <el-select
+              v-else-if="item.search.el === 'select'"
+              v-model="searchParam[item.search.key || item.prop]"
+              :placeholder="item.search.placeholder || `请选择${item.label}`"
+              clearable
+            >
+              <el-option
+                v-for="opt in item.enum"
+                :key="opt.value"
+                :label="opt.label"
+                :value="opt.value"
+              />
+            </el-select>
+
+          </el-form-item>
         </template>
+        
         <el-form-item>
           <el-button type="primary" :icon="Search" @click="search">搜索</el-button>
           <el-button :icon="Refresh" @click="reset">重置</el-button>
