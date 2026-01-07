@@ -42,3 +42,9 @@ const isCollapse = computed(() => !sidebar.value.opened) // 获取折叠状态
     </el-scrollbar>
   </div>
 </template>
+<style scoped lang="scss">
+/* Sidebar/index.vue */
+:deep(.el-menu) {
+  border-right: none !important; // 去掉菜单右侧那条多余的线
+}
+</style>

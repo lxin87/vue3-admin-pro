@@ -68,7 +68,7 @@ const handleDelete = (row: any) => {
       :columns="columns"
     >
       <template #toolButton>
-        <el-button type="primary" :icon="Plus" @click="handleAdd" v-auth="'system:admin:add'">新增管理员</el-button>
+        <el-button type="primary" :icon="Plus" @click="handleAdd" v-auth="'system:admin:store'">新增管理员</el-button>
       </template>
 
       <template #roles="scope">
@@ -96,8 +96,8 @@ const handleDelete = (row: any) => {
 
       <template #operation="scope">
         <el-button link type="primary" @click="adminRoleDialogRef.open(scope.row.id)" v-auth="'sys:admin:assignRole'">分配角色</el-button>
-        <el-button link type="primary" :icon="Edit" v-auth="'system:admin:edit'" @click="handleEdit(scope.row)">编辑</el-button>
-        <el-button link type="danger" :icon="Delete" v-auth="'system:admin:delete'" @click="handleDelete(scope.row)">删除</el-button>
+        <el-button link type="primary" :icon="Edit" v-auth="'system:admin:update'" @click="handleEdit(scope.row)">编辑</el-button>
+        <el-button link type="danger" :icon="Delete" v-auth="'system:admin:destroy'" @click="handleDelete(scope.row)">删除</el-button>
       </template>
 
     </ProTable>

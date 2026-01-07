@@ -183,8 +183,8 @@ const handleSubmit = async() =>{
       </el-form-item>
       <el-form-item label="是否隐藏" prop="is_hidden">
         <el-radio-group v-model="formData.is_hidden">
-          <el-radio :label="0">显示</el-radio>
-          <el-radio :label="1">隐藏</el-radio>
+          <el-radio :value="0">显示</el-radio>
+          <el-radio :value="1">隐藏</el-radio>
         </el-radio-group>
         <div class="help-tips">设置为隐藏后，该权限仍可分配，但不会出现在侧边栏</div>
       </el-form-item>

@@ -60,7 +60,7 @@ const handleDelete = (row:MenuModel) =>{
   <div class="app-container">
     <el-card shadow="never">
         <div style="margin-bottom: 20px;">
-            <el-button type="primary" :icon="Plus" v-auth="'sys:menu:add'" @click="handleOpenDrawer('add')">新增菜单</el-button>
+            <el-button type="primary" :icon="Plus" v-auth="'sys:menu:store'" @click="handleOpenDrawer('add')">新增菜单</el-button>
         </div>
         
         <el-table
@@ -70,7 +70,7 @@ const handleDelete = (row:MenuModel) =>{
           border
           :tree-props="{children:'children'}"
         >
-            <el-table-column prop="title" lable="菜单名称" min-width="150" />
+            <el-table-column prop="title" label="菜单名称" min-width="150" />
             <el-table-column prop="icon" label="图标" width="80" align="center">
                 <template #default="scope" size="18">
                     <el-icon v-if="scope.row.icon">
@@ -86,6 +86,7 @@ const handleDelete = (row:MenuModel) =>{
                 </template>
             </el-table-column>
             <el-table-column prop="path" label="路由路径" />
+            <el-table-column prop="component" label="组件地址" />
             <el-table-column prop="perm_code" label="权限标识" />
             <el-table-column prop="icon" label="是否隐藏" width="100" align="center">
                 <template #default="scope">
@@ -103,11 +104,11 @@ const handleDelete = (row:MenuModel) =>{
             </el-table-column>
             <el-table-column label="操作" width="200" align="center">
                 <template #default="scope">
-                    <el-button v-if="scope.row.type !== 3" link type="primary" v-auth="'sys:menu:add'" :icon="Plus" @click="handleOpenDrawer('add',scope.row)">
+                    <el-button v-if="scope.row.type !== 3" link type="primary" v-auth="'sys:menu:store'" :icon="Plus" @click="handleOpenDrawer('add',scope.row)">
                         新增
                     </el-button>
-                    <el-button link type="primary" :icon="Edit" v-auth="'sys:menu:edit'" @click="handleOpenDrawer('edit',scope.row)">编辑</el-button>
-                    <el-button link type="danger" :icon="Delete" v-auth="'sys:menu:delete'" @click="handleDelete(scope.row)">删除</el-button>
+                    <el-button link type="primary" :icon="Edit" v-auth="'sys:menu:update'" @click="handleOpenDrawer('edit',scope.row)">编辑</el-button>
+                    <el-button link type="danger" :icon="Delete" v-auth="'sys:menu:destroy'" @click="handleDelete(scope.row)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>

@@ -17,7 +17,6 @@ const open = async (id: number) => {
   try {
     // 1. 拉取所有可选的角色列表 (启用状态的)
     const res = await getRoleListApi({ pageSize: 100, status: 1 })
-    console.log(res)
     allRoles.value = res.data
     
     // 2. 拉取该管理员当前拥有的角色ID

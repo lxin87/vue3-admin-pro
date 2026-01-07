@@ -45,7 +45,7 @@ const submitForm = async () => {
   <div class="app-container">
     <el-card header="个人资料修改">
       <el-form :model="form" label-width="100px" style="max-width: 500px">
-        <el-form-item label="昵称">
+        <el-form-item label="帐号">
           <el-input v-model="form.username" />
         </el-form-item>
         <el-form-item label="昵称">

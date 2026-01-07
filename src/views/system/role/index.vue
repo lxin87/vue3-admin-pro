@@ -58,7 +58,7 @@ const handleDelete = (row: any) => {
       :request-api="getRoleListApi"
     >
       <template #toolButton>
-        <el-button type="primary" :icon="Plus" v-auth="'sys:role:add'" @click="roleDrawerRef.open()">
+        <el-button type="primary" :icon="Plus" v-auth="'sys:role:store'" @click="roleDrawerRef.open()">
           新增角色
         </el-button>
       </template>
@@ -79,8 +79,8 @@ const handleDelete = (row: any) => {
 
       <template #operation="scope">
         <el-button link type="primary" :icon="Setting" v-auth="'sys:role:assignPermission'" @click="handleAssign(scope.row)">分配权限</el-button>
-        <el-button link type="primary" :icon="Edit" v-auth="'sys:role:edit'" @click="roleDrawerRef.open(scope.row)">编辑</el-button>
-        <el-button v-if="scope.row.id !== 1" link type="danger" :icon="Delete" v-auth="'sys:role:delete'" @click="handleDelete(scope.row)">删除</el-button>
+        <el-button link type="primary" :icon="Edit" v-auth="'sys:role:update'" @click="roleDrawerRef.open(scope.row)">编辑</el-button>
+        <el-button v-if="scope.row.id !== 1" link type="danger" :icon="Delete" v-auth="'sys:role:destroy'" @click="handleDelete(scope.row)">删除</el-button>
       </template>
     </ProTable>
 
